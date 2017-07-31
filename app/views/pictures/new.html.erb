@@ -1,0 +1,9 @@
+<%= form_for(@picture) do |f| %>
+<%= f.label :title, "Title:" %>
+<%= f.text_field :title %><br>
+<%= f.fields_for :tags do |tag| %>
+<%= tag.label :name, "Tag Name:"%>
+<%= tag.text_field :name %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
