@@ -5,8 +5,14 @@ class Tag < ApplicationRecord
   validates :name, presence: true
 
   def self.most_popular
-    tag = self.order(:picture_tag_id).first(3)
-    # self.sort_by {|tag| tag.picture.length}
+    # Tag.group('picture_tag').order('count(*)').limit(1).pluck(:tag).first
+    popular = Tag.all.sort_by {|tag| tag.pictures.count}
+    popular.map {|tag| tag}.reverse.first(3)
+
+    #look through all the pictures
+    #sort the tags, and find which one has been used most often
+    #return that tag
+    #return all pictures that have used that tag
   end
 
 
