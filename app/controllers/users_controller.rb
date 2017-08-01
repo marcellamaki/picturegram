@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @picture = Picture.find(params[:id])
+    # @pictures = Picture.all
   end
 
   # def edit

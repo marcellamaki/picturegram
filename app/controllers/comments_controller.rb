@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     #   redirect_to picture_path(@picture)
     @picture = Picture.find(params[:picture_id])
     @comment = @picture.comments.build(comment_params)
-    @comment.user = current_user
+    @comment.user = this_user
 
     if @comment.save
       redirect_to picture_path(@picture)

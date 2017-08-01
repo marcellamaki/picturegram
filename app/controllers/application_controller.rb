@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     end
 
     def this_user
-      @user ||= User.find_by(id: session[:user_id])
+      @this_user ||= User.find_by(id: session[:user_id])
     end
 
     def logged_in?
