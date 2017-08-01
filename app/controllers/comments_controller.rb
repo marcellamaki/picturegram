@@ -9,16 +9,24 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.valid?
-      @comment.save
-      # redirect_to signin_path
+    # @comment = Comment.new(comment_params)
+    # @comment.save
+    # @picture = Picture.find(params[:picture_id])
+    #   redirect_to picture_path(@picture)
+    @picture = Picture.find(params[:picture_id])
+    @comment = @picture.comments.build(comment_params)
+    @comment.user = current_user
+
+    if @comment.save
+      redirect_to picture_path(@picture)
     else
       render :new
+    end
   end
 
   def show
     @comment = Comment.find_by(id: params[:id])
+    @picture = Picture.find_by(id: params[:id])
   end
 
   def edit
@@ -38,7 +46,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:picture_id, :user_id)
+    params.require(:comment).permit(:content, :user_id, :picture_id => [])
   end
 
 end

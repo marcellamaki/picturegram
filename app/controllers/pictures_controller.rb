@@ -23,6 +23,10 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find_by(id: params[:id])
     @tag = Tag.find_by(id: params[:id])
+    @comment = Comment.new
+    @comments = @picture.comments.includes(:user)
+    # @comments = Comment.all
+    # @comment = Comment.find(params[:id])
   end
 
   def edit

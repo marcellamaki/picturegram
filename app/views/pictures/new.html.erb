@@ -3,6 +3,8 @@
 <%= picture_form.text_field :title %><br>
 <%= picture_form.label :user_id, "User ID:" %>
 <%= picture_form.text_field :user_id %><br>
-<%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %>
+<%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %><br>
+<%= picture_form.label :image_url, "Image URL:" %>
+<%= picture_form.text_field :image_url %><br>
   <%= picture_form.submit %>
 <% end %>
