@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-  belongs_to :picture_tag
+  has_many :picture_tags
+  has_many :pictures, through: :picture_tags
 
   validates :name, presence: true
 

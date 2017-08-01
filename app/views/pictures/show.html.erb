@@ -1,0 +1,7 @@
+<%= @picture.title %>
+<ul>
+<% @picture.tags.map do |tag| %>
+
+  <li><%= tag.name %> </li>
+  <% end %>
+</ul>

@@ -6,14 +6,13 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
-    @picture.tags.build
-    @picture.tags.build
-
   end
 
   def create
     @picture = Picture.new(picture_params)
+    # byebug
     if @picture.valid?
+      # tag_params
       @picture.save
       redirect_to picture_path(@picture)
     else
@@ -43,7 +42,10 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:image_url, :title, tag_ids:[])
+    params.require(:picture).permit(:image_url, :title, :user_id, :tag_ids)
   end
+  # def tag_params
+  #   params.require(:tag).permit(:tag_ids)
+  # end
 
 end

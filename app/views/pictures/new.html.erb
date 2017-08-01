@@ -1,9 +1,8 @@
-<%= form_for(@picture) do |f| %>
-<%= f.label :title, "Title:" %>
-<%= f.text_field :title %><br>
-<%= f.fields_for :tags do |tag| %>
-<%= tag.label :name, "Tag Name:"%>
-<%= tag.text_field :name %><br>
-  <% end %>
-  <%= f.submit %>
+<%= form_for(@picture) do |picture_form| %>
+<%= picture_form.label :title, "Title:" %>
+<%= picture_form.text_field :title %><br>
+<%= picture_form.label :user_id, "User ID:" %>
+<%= picture_form.text_field :user_id %><br>
+<%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %>
+  <%= picture_form.submit %>
 <% end %>
