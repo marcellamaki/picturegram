@@ -1,5 +1,9 @@
+<h1><%= "#{@picture.title}" %></h1>
+
 <%= image_tag "#{@picture.image_url}" %>
-<h1><%= @picture.title %></h1>
+<% if this_user == @picture.user %>
+      <%= link_to "Delete", @picture, method: :delete %>
+      <% end %>
 <ul>
   <% @picture.tags.map do |tag| %>
   <li>#<%= tag.name %> </li>

@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @picture.tags.build
   end
 
   def create
@@ -25,8 +26,6 @@ class PicturesController < ApplicationController
     @tag = Tag.find_by(id: params[:id])
     @comment = Comment.new
     @comments = @picture.comments.includes(:user)
-    # @comments = Comment.all
-    # @comment = Comment.find(params[:id])
   end
 
   def edit

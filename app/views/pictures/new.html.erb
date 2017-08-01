@@ -2,8 +2,16 @@
 <%= picture_form.label :title, "Title:" %>
 <%= picture_form.text_field :title %><br>
 <%= picture_form.hidden_field :user_id, :value => this_user.id %>
-<%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %><br>
+Tag Options: <%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name)%><br>
 <%= picture_form.label :image_url, "Image URL:" %>
 <%= picture_form.text_field :image_url %><br>
-  <%= picture_form.submit %>
+
+<%= picture_form.fields_for :tags do |tag| %>
+<%= tag.label :name, "Tag:" %>
+<%= tag.text_field :name %><br>
 <% end %>
+  <%= picture_form.submit "Post Picture" %>
+<% end %>
+
+
+
