@@ -14,6 +14,10 @@ class PicturesController < ApplicationController
     # new tag isn't saving
     # make tag belong_to picture?
     @picture = Picture.create(picture_params)
+    if params[:picture][:tags][:name].present?
+      new_tag = Tag.create(name: params[:picture][:tags][:name])
+      @picture.tags << new_tag
+    end
       # tag_params
       # @picture.save
       redirect_to picture_path(@picture)

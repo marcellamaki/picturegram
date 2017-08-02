@@ -1,12 +1,12 @@
-<h3>Most Popular Tags</h3>
+<h3><u>Most Popular Tags</u></h3>
 <% Tag.most_popular.each do |tag| %>
-  <%=link_to "#{tag.name}", tag_path(tag)%>
+  <li style="list-style-type:circle"><%=link_to "#{tag.name}", tag_path(tag)%></li>
   <br>
   <% end %>
 
  <br>
 
-<h3>All Users on PictureGram</h3>
+<h3><u>All Users on PictureGram</u></h3>
 <% @users.each do |user| %>
-	<%= link_to "#{user.username}", user_path(user) %><br>
+	<li style="list-style-type:circle"><%= link_to "#{user.username.capitalize}", user_path(user) %></li><br>
 <% end %>
