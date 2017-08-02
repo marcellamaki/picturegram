@@ -1,23 +1,29 @@
 <h1><%= "#{@picture.title}" %></h1>
 
-<%= image_tag "#{@picture.image_url}" %>
+<%= image_tag "#{@picture.image_url}" %><br><br>
 <% if this_user == @picture.user %>
-      <%= link_to "Delete", @picture, method: :delete %>
-      <% end %>
+      <%= button_to "Delete Picture", @picture, method: :delete %>
+      <% end %><br>
+
+<% if @picture.tags.present? %>
+<h3>Hashtags</h3>
 <ul>
   <% @picture.tags.map do |tag| %>
   <li>#<%= tag.name %> </li>
   <% end %>
 </ul><br>
-
-<h1>Comments</h1>
-<% @comments.map do |comment| %>
-<%= comment.content %><br>
 <% end %>
 
+<h2><u>Comments</u></h2>
+<% @comments.map do |comment| %>
+<%= comment.content %><br>
+<% end %><br>
+
+<div id="comment">
 <h3>Add a Comment!</h3>
 <%= form_for ([@picture, @comment]) do |f| %>
 <%= f.label :content, "Comment:" %>
 <%= f.text_field :content %>
-<%= f.submit %>
+<%= f.submit "Post Comment", :class => "button" %>
 <% end %>
+</div>

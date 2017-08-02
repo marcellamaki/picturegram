@@ -10,5 +10,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 
+  def received_comments
+
+  end
+
 
 end

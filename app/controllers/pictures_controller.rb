@@ -7,18 +7,16 @@ class PicturesController < ApplicationController
   def new
     @picture = Picture.new
     @picture.tags.build
+    @picture.picture_tags.build.build_tag
   end
 
   def create
-    @picture = Picture.new(picture_params)
-    # byebug
-    if @picture.valid?
+    # new tag isn't saving
+    # make tag belong_to picture?
+    @picture = Picture.create(picture_params)
       # tag_params
-      @picture.save
+      # @picture.save
       redirect_to picture_path(@picture)
-    else
-      render :new
-    end
   end
 
   def show
@@ -39,14 +37,19 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find_by(id: params[:id])
+    @picture.user = this_user
     @picture.destroy
+    if @picture.destroy
+      redirect_to user_path(@this_user)
+    end
   end
 
   private
 
   def picture_params
-    params.require(:picture).permit(:image_url, :title, :user_id, :tag_ids => [])
+    params.require(:picture).permit(:image_url, :title, :user_id, :picture_id, :tag_ids => [])
   end
+
   # def tag_params
   #   params.require(:tag).permit(:tag_ids)
   # end

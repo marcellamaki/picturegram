@@ -4,6 +4,7 @@
     <title>PictureGram</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "main" %>
     <%= csrf_meta_tags %>
     <%= analytics_init if Rails.env.production? %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
@@ -13,7 +14,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-        <a class="navbar-brand" href="<%= home_path %>"/>Home</a>
+        <a class="navbar-brand", href="<%= home_path %>"/>Home</a>
         <% if logged_in? %>
           <%= link_to "Hello, #{this_user.username}", user_path(this_user), class: "navbar-brand"%>
           <%= link_to('Log Out', logout_path, method: 'DELETE', class: "navbar-brand") %>

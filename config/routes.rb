@@ -11,6 +11,7 @@ get '/session/new', to: 'sessions#new', as: 'signin'
 post '/session/new', to: 'sessions#create'
 get '/signup', to: 'users#new', as: 'signup'
 delete '/logout', to: 'sessions#destroy'
+delete '/tags/:id', to: 'tags#destroy'
 
 get '/', to: 'home_page#show', as: 'home'
 

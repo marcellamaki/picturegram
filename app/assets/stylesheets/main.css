@@ -1,0 +1,25 @@
+body {
+    background-color: lightblue;
+	font-family: helvetica;
+	margin: 10px;
+	padding: 10px;
+
+}
+
+#comment {
+/*	border-style: solid;
+    border-width: 2px;*/
+    padding: 10px;
+    /*box-sizing: border-box;*/
+    width: 500px;
+    height: 100px;
+    border: 1px solid blue;
+}
+
+.button {
+	background-color: black;
+	color: white;
+  	width: 100px;
+  	height: 20px;
+}
+
