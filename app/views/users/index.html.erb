@@ -1,0 +1,12 @@
+<h3>Most Popular Tags</h3>
+<% Tag.most_popular.each do |tag| %>
+  <%=link_to "#{tag.name}", tag_path(tag)%>
+  <br>
+  <% end %>
+
+ <br>
+
+<h3>All Users on PictureGram</h3>
+<% @users.each do |user| %>
+	<%= link_to "#{user.username}", user_path(user) %><br>
+<% end %>

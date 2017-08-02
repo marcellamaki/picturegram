@@ -9,14 +9,18 @@
 <h3>Hashtags</h3>
 <ul>
   <% @picture.tags.map do |tag| %>
-  <li>#<%= tag.name %> </li>
+  <li>#<%= link_to "#{tag.name}", tag_path(tag) %> </li>
   <% end %>
 </ul><br>
 <% end %>
 
 <h2><u>Comments</u></h2>
 <% @comments.map do |comment| %>
-<%= comment.content %><br>
+<%= link_to "#{comment.user.username.capitalize}", picture_comment_path(comment) %>:
+<%= comment.content %>
+<%= button_to "Delete", picture_comment_path(comment), method: :delete %>
+
+<br>
 <% end %><br>
 
 <div id="comment">
