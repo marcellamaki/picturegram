@@ -1,4 +1,12 @@
+<br>
 <h1> <%= @tag.name %> </h1>
 <% @tag.pictures.each do |picture| %>
   <%= link_to image_tag("#{picture.image_url}"), picture_path(picture)  %>
+<% end %><br>
+<br>
+<% if @tag.pictures.present? %>
+<%= button_to "Delete", @tag, method: :delete %>
 <% end %>
+<br>
+
+<%= link_to "All Tags", tags_path %>

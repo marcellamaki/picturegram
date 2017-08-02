@@ -1,10 +1,12 @@
+	<h1><u>Login Page</u></h1>
+	<br>
 
-<%= form_tag (@user) do |f| %>
-<label>Username: </label>
-<%= text_field_tag :'user[username]' %> <br>
-<label>Password: </label>
-<%= password_field_tag :'user[password]' %> <br>
+	<%= form_tag (@user) do |f| %>
+	<label>Username: </label>
+	<%= text_field_tag :'user[username]' %> <br>
+	<label>Password:</label>
+	<%= password_field_tag :'user[password]' %> <br>
+	<br>
 
-<%= submit_tag "Sign In" %>
-
-<% end %>
+	<%= submit_tag "Sign In", :class => "button" %>
+	<% end %>

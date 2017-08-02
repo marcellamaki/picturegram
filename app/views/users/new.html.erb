@@ -1,10 +1,10 @@
 <%= form_for(@user) do |f| %>
-<%= f.label :email %>
+<%= f.label :email, "Email:" %>
 <%= f.text_field :email %>
-<%= f.label :username %>
+<%= f.label :username, "Username:" %>
 <%= f.text_field :username %>
-<%= f.label :password %>
+<%= f.label :password, "Password:" %>
 <%= f.password_field :password %>
 
-<%= f.submit %>
+<%= f.submit "Create User", :class => "button" %>
 <% end %>
