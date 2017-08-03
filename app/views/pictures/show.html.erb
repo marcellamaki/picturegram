@@ -4,18 +4,17 @@
 
 <h1><%= "#{@picture.title}" %></h1>
 
-<div class="center-block">
-<%= image_tag("#{@picture.image_url}", :size => "500x500")  %><br><br>
+
+<%= image_tag "#{@picture.image_url}", :height => '300px' %><br><br>
 <% if this_user == @picture.user %>
       <%= button_to "Delete Picture", @picture, method: :delete %>
-      <% end %><br>
-</div>
+<% end %><br>
 
 <% if @picture.tags.present? %>
 <h3>Hashtags</h3>
 <ul>
   <% @picture.tags.map do |tag| %>
-  <li>#<%= link_to "#{tag.name}", tag_path(tag) %> </li>
+  <li><%= link_to "#{tag.name}", tag_path(tag) %> </li>
   <% end %>
 </ul><br>
 <% end %>
@@ -32,6 +31,10 @@
 <% @comments.map do |comment| %>
 <%= link_to "#{comment.user.username.capitalize}", user_path(comment.user) %>:
 <%= comment.content %>
+
+<% if this_user == comment.user.username %>
+<%= button_to "Delete", picture_comment_path(comment), method: :delete %>
+<% end %>
 
 <br>
 <% end %><br>

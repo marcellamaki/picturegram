@@ -39,8 +39,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @picture = Picture.find(params[:picture_id])
-    @comment = Comment.find_by(id: params[:id])
+    @picture = Picture.find(params[:id])
+    @comment = Comment.find_by(id: params[:picture_id])
     this_picture = @comment.picture
     @comment.destroy
 

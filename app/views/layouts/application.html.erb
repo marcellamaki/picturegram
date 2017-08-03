@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PictureGram</title>
+  <title>Picturegram</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
   <br>
   <br>
 
-  <div id="main-container" class="container">
+ <div id="main-container" class="container">
   <div class="row">
     <div class="col-xs-12">
     <br>
@@ -25,7 +25,7 @@
         <div class="navbar-header">
         <a class="navbar-brand", href="<%= home_path %>"/>Home</a>
         <% if logged_in? %>
-          <%= link_to "Hello, #{this_user.username}", user_path(this_user), class: "navbar-brand"%>
+          <%= link_to "#{this_user.username.capitalize}'s Profile", user_path(this_user), class: "navbar-brand"%>
           <%= link_to('Log Out', logout_path, method: 'DELETE', class: "navbar-brand") %>
 
           <% else %>

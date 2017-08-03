@@ -1,17 +1,17 @@
-<h3>Most Popular Tags</h3>
+<h3><u>Most Popular Tags</u></h3>
 <% Tag.most_popular.each do |tag| %>
-  <%=link_to "#{tag.name}", tag_path(tag)%>
+  <li style="list-style-type:circle"><%=link_to "#{tag.name}", tag_path(tag)%></li>
   <br>
   <% end %>
 
  <br>
 
-<h3>All Users on PictureGram</h3>
+<h3><u>All Users on PictureGram</u></h3>
 <% @users.each do |user| %>
-	<%= link_to "#{user.username}", user_path(user) %><br>
+	<li style="list-style-type:circle"><%= link_to "#{user.username.capitalize}", user_path(user) %></li><br>
 <% end %>
 
-<h3>See what others have been saying about your pictures!</h3>
-<% this_user.received_comments.each do |comment| %>
- <%=comment %> <br>
+<h3><u>See What Others Have Been Saying About Your Pictures!</u></h3>
+<% this_user.received_comments.each do |content| %>
+<%= link_to "#{this_user.username}", user_path(this_user) %>: <%= content %><br>
 <% end %>

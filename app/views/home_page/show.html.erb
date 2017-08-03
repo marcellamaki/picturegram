@@ -34,7 +34,7 @@
       </div>
 
       <div class="item">
-        <img src="http://cdn1.medicalnewstoday.com/content/images/articles/312/312547/coffee.jpg" alt="Coffee" style="width:100%;">
+        <img src="http://sawadacoffee.com/wp-content/uploads/Sawada-Coffee-10DEC2015-003.jpg" alt="Coffee" style="width:100%;">
       </div>
     </div>
 
@@ -53,13 +53,13 @@
 </body>
 </html>
 
-<h3> Most Popular </h3>
+<h3> Most Popular Tags </h3>
 <% Tag.most_popular.each do |tag| %>
   <%=link_to "#{tag.name}", tag_path(tag)%>
   <br>
   <% end %>
 
-  <h3> Trending Pictures </h3>
-  <% Picture.trending.each do |picture| %>
-  <%= link_to image_tag("#{picture.image_url}", :height => ‘250px’), picture_path(picture)  %>
-  <% end %>
+<h3> Trending Pictures </h3>
+<% Picture.trending.each do |picture| %>
+<%= link_to image_tag("#{picture.image_url}", :height => '250px'), picture_path(picture)  %>
+<% end %>

@@ -32,7 +32,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry'
 
-gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
