@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>PictureGram</title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= stylesheet_link_tag "main" %>
-    <%= csrf_meta_tags %>
-    <%= analytics_init if Rails.env.production? %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
-  </head>
-  <body>
+<html lang="en">
+<head>
+  <title>Picturegram</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-  <div id="main-container" class="container">
+<div class="container">
+  <br>
+  <br>
+  <br>
+
+ <div id="main-container" class="container">
   <div class="row">
     <div class="col-xs-12">
     <br>
@@ -21,7 +25,7 @@
         <div class="navbar-header">
         <a class="navbar-brand", href="<%= home_path %>"/>Home</a>
         <% if logged_in? %>
-          <%= link_to "Hello, #{this_user.username}", user_path(this_user), class: "navbar-brand"%>
+          <%= link_to "#{this_user.username.capitalize}'s Profile", user_path(this_user), class: "navbar-brand"%>
           <%= link_to('Log Out', logout_path, method: 'DELETE', class: "navbar-brand") %>
 
           <% else %>

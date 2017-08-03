@@ -10,3 +10,9 @@
 <% @users.each do |user| %>
 	<li style="list-style-type:circle"><%= link_to "#{user.username.capitalize}", user_path(user) %></li><br>
 <% end %>
+
+<h3><u>See What Others Have Been Saying About Your Pictures!</u></h3>
+<% this_user.received_comments.each do |content| %>
+<%= link_to "#{this_user.username}", user_path(this_user) %>: <%= content %><br>
+<% end %>
+

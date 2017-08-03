@@ -1,9 +1,10 @@
 <h1><%= "#{@picture.title}" %></h1>
 
-<%= image_tag "#{@picture.image_url}" %><br><br>
+
+<%= image_tag "#{@picture.image_url}", :height => '300px' %><br><br>
 <% if this_user == @picture.user %>
       <%= button_to "Delete Picture", @picture, method: :delete %>
-      <% end %><br>
+<% end %><br>
 
 <% if @picture.tags.present? %>
 <h3>Hashtags</h3>
@@ -14,11 +15,15 @@
 </ul><br>
 <% end %>
 
+
 <h2><u>Comments</u></h2>
 <% @comments.map do |comment| %>
-<%= "#{comment.user.username.capitalize}" %>:
+<%= link_to "#{comment.user.username.capitalize}", user_path(comment.user) %>:
 <%= comment.content %>
+
+<% if this_user == comment.user.username %>
 <%= button_to "Delete", picture_comment_path(comment), method: :delete %>
+<% end %>
 
 <br>
 <% end %><br>

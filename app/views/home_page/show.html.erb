@@ -60,9 +60,8 @@
   <% end %>
 
 <h3> Trending Pictures </h3>
-
 <% Picture.trending.each do |picture| %>
-<%= link_to image_tag("#{picture.image_url}", :size => "350x225", :crop => :fill), picture_path(picture)  %>
+<%= link_to image_tag("#{picture.image_url}", :height => '250px'), picture_path(picture)  %>
 <% end %>
 
 
