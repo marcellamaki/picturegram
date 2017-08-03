@@ -3,6 +3,7 @@ class Picture < ApplicationRecord
   has_many :picture_tags, inverse_of: :picture
   has_many :tags, through: :picture_tags
   has_many :comments
+  has_many :likes
 
   validates :title, presence: true
 

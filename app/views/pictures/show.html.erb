@@ -1,9 +1,15 @@
+<div id="main-container" class="container">
+<div class="row">
+
+
 <h1><%= "#{@picture.title}" %></h1>
 
-<%= image_tag "#{@picture.image_url}" %><br><br>
+<div class="center-block">
+<%= image_tag("#{@picture.image_url}", :size => "500x500")  %><br><br>
 <% if this_user == @picture.user %>
       <%= button_to "Delete Picture", @picture, method: :delete %>
       <% end %><br>
+</div>
 
 <% if @picture.tags.present? %>
 <h3>Hashtags</h3>
@@ -14,11 +20,18 @@
 </ul><br>
 <% end %>
 
+<div id="like">
+<h3>Like This Picture!</h3>
+<%= image_tag("https://image.flaticon.com/icons/png/128/148/148836.png", :size => "20x20")%>
+<%= @picture.likes.count %>
+<br>
+<br>
+<%= button_to "Like", likes_path(@picture), method: :post %>
+
 <h2><u>Comments</u></h2>
 <% @comments.map do |comment| %>
-<%= link_to "#{comment.user.username.capitalize}", picture_comment_path(comment) %>:
+<%= link_to "#{comment.user.username.capitalize}", user_path(comment.user) %>:
 <%= comment.content %>
-<%= button_to "Delete", picture_comment_path(comment), method: :delete %>
 
 <br>
 <% end %><br>
@@ -30,4 +43,10 @@
 <%= f.text_field :content %>
 <%= f.submit "Post Comment", :class => "button" %>
 <% end %>
+
+
+
+</div>
+</div>
+</div>
 </div>

@@ -10,3 +10,8 @@
 <% @users.each do |user| %>
 	<%= link_to "#{user.username}", user_path(user) %><br>
 <% end %>
+
+<h3>See what others have been saying about your pictures!</h3>
+<% this_user.received_comments.each do |comment| %>
+ <%=comment %> <br>
+<% end %>

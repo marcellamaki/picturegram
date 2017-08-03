@@ -17,11 +17,12 @@ body {
 }
 */
 .button {
-	background-color: black;
+	background-color: gray;
 	color: white;
   	width: 90px;
   	height: 20px;
 }
+
 
 /*.thumbnail img {
     height:50px;
@@ -31,14 +32,3 @@ body {
 /*.container {
 	max-width: 100%;
 }
-*//*
-.image_container img {
-  width: 260px;
-  height: 180px
-}
-
-*/
-
-
-
-

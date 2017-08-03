@@ -39,12 +39,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    byebug
-    @picture = Picture.find(params[:id])
+    @picture = Picture.find(params[:picture_id])
     @comment = Comment.find_by(id: params[:id])
     this_picture = @comment.picture
     @comment.destroy
-    
+
     # if @comment.destroy
     redirect_to picture_path(this_picture)
   end
