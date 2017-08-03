@@ -7,21 +7,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<br>
-<br>
-<br>
 <body>
 
 <div class="container">
+<div class="page-header">
+  <h1><%= "#{@user.username.capitalize}'s Profile Page" %></h1>
+  <small><%= link_to "Create a New Picture", new_picture_path %><br>
+<%= link_to "Delete Account", @user, method: :delete, data: {confirm: "Are You Sure?" } %>	</small>
+</div>
+<br>
+<br>
 
-<h1>Profile Page</h1>
-<div class="picture">
+
 
 <% @user.pictures.each do |picture| %>
-<%= link_to image_tag("#{picture.image_url}", :size => "350x225", :crop => :fill), picture_path(picture)  %>
+<div class="col-md-3" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px; padding-top: 5px;"><%= link_to image_tag("#{picture.image_url}", :size => "250x250"), picture_path(picture)  %></div>
 <% end %><br><br>
 </div>
-<%= link_to "Create a New Picture", new_picture_path %>
+
+<br>
+<br>
+<br>
 
 </body>
+
+<br>
+<br>
 </html>
+

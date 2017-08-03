@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      flash[:message] = "We could not find a user with that name or password. Please try again."
-      redirect_to login_path
+      redirect_to signin_path
     end
   end
 

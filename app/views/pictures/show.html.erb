@@ -1,14 +1,19 @@
+
 <div id="main-container" class="container">
 <div class="row">
 
+<div class="page-header">
+  <h1><%= "#{@picture.title}" %></h1>
+</div>
 
-<h1><%= "#{@picture.title}" %></h1>
 
 
 <%= image_tag "#{@picture.image_url}", :height => '300px' %><br><br>
 <% if this_user == @picture.user %>
-      <%= button_to "Delete Picture", @picture, method: :delete %>
+      <%= button_to "Delete Picture", @picture, class: 'btn btn-default', method: :delete %>
 <% end %><br>
+
+
 
 <% if @picture.tags.present? %>
 <h3>Hashtags</h3>
@@ -25,15 +30,15 @@
 <%= @picture.likes.count %>
 <br>
 <br>
-<%= button_to "Like", likes_path(@picture), method: :post %>
+<%= button_to "Like", likes_path(@picture), class: 'btn btn-default', method: :post %>
 
-<h2><u>Comments</u></h2>
+<h2>Comments</h2>
 <% @comments.map do |comment| %>
 <%= link_to "#{comment.user.username.capitalize}", user_path(comment.user) %>:
 <%= comment.content %>
 
-<% if this_user == comment.user.username %>
-<%= button_to "Delete", picture_comment_path(comment), method: :delete %>
+<% if comment.user == this_user %>
+<%= button_to "Delete", picture_comment_path(comment), class: "btn btn-default btn-xs", method: :delete %>
 <% end %>
 
 <br>
@@ -44,8 +49,13 @@
 <%= form_for ([@picture, @comment]) do |f| %>
 <%= f.label :content, "Comment:" %>
 <%= f.text_field :content %>
-<%= f.submit "Post Comment", :class => "button" %>
+<%= f.submit "Post Comment", class: 'btn btn-default' %>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 

@@ -1,13 +1,19 @@
+<div class="page-header">
+  <h1>Post a New Picture</h1>
+</div>
+
+
 <%= form_for(@picture) do |picture_form| %>
 <%= picture_form.label :title, "Title:" %>
 <%= picture_form.text_field :title %><br><br>
 <%= picture_form.hidden_field :user_id, :value => this_user.id %>
-<%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %><br><br>
+<%= collection_check_boxes(:picture, :tag_ids, Tag.all, :id, :name) %>
+<br><br>
 <%= picture_form.label :image_url, "Image URL:" %>
 <%= picture_form.text_field :image_url %><br><br>
 <%= picture_form.fields_for :tags do |tag| %>
 <%= tag.label :name, "Tag:" %>
 <%= tag.text_field :name %><br><br>
 <% end %>
-  <%= picture_form.submit "Post Picture" %>
+  <%= picture_form.submit "Post Picture", class: 'btn btn-default' %>
 <% end %>

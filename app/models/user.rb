@@ -13,9 +13,7 @@ class User < ApplicationRecord
 
   def received_comments
         self.pictures.collect do |picture|
-            picture.comments.collect do |comment|
-              comment.content
+            picture.comments
         end.flatten
-    end.flatten
-end
+    end
 end

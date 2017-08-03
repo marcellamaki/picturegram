@@ -1,12 +1,15 @@
-<br>
-<h1> <%= @tag.name %> </h1>
-<% @tag.pictures.each do |picture| %>
-  <%= link_to image_tag("#{picture.image_url}"), picture_path(picture)  %>
-<% end %><br>
-<br>
-<% if @tag.pictures.present? %>
-<%= button_to "Delete", @tag, method: :delete %>
-<% end %>
-<br>
+<div class="page-header">
+  <h1><%= @tag.name %></h1>
+</div>
+
 
 <%= link_to "Go Back to All Tags", tags_path %>
+<br>
+<br>
+<% @tag.pictures.each do |picture| %>
+  <div class="col-md-3" style="padding-left: 5px; padding-right: 5px;"><%= link_to image_tag("#{picture.image_url}", :size => '250x250'), picture_path(picture) %></div>
+<% end %>
+<br>
+<br>
+<br>
+

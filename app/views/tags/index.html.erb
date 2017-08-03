@@ -1,4 +1,6 @@
-
+<div class="page-header">
+  <h1>All Tags</h1>
+</div>
 <% @tags.each do |tag| %>
 <li style="list-style-type:circle"><%= link_to tag.name, tag_path(tag) %></li>
 <% end %>

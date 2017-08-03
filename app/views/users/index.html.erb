@@ -1,4 +1,8 @@
-<h3><u>Most Popular Tags</u></h3>
+<div class="page-header">
+  <h1>PictureGram Feed</h1>
+</div>
+
+<h3>Most Popular Tags</h3>
 <% Tag.most_popular.each do |tag| %>
   <li style="list-style-type:circle"><%=link_to "#{tag.name}", tag_path(tag)%></li>
   <br>
@@ -6,12 +10,17 @@
 
  <br>
 
-<h3><u>All Users on PictureGram</u></h3>
+<h3>All Users on PictureGram</h3>
 <% @users.each do |user| %>
 	<li style="list-style-type:circle"><%= link_to "#{user.username.capitalize}", user_path(user) %></li><br>
 <% end %>
 
-<h3><u>See What Others Have Been Saying About Your Pictures!</u></h3>
-<% this_user.received_comments.each do |content| %>
-<%= link_to "#{this_user.username}", user_path(this_user) %>: <%= content %><br>
+<h3>See What Others Have Been Saying About Your Pictures!</h3>
+<% this_user.received_comments.each do |comment| %>
+<%= link_to "#{comment.user.username}", user_path(comment.user) %>: <%= comment.content %><br>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+

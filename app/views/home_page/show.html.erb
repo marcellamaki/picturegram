@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Welcome Carousel</title>
+  <title>PictureGram</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,11 +10,15 @@
 </head>
 <body>
 
+
 <div class="container">
+
+<div class="col-md-12" style="padding-left: 5px; padding-right: 5px;">
+<div class="page-header">
+  <h1>Welcome to Picturegram! <small>Sign in or sign up to get started!</small></h1>
+</div>
   <br>
   <br>
-  <br>
-  <h1>Welcome to PictureGram</h1>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -47,13 +51,8 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
-</div>
-
-</body>
-</html>
-
-<h3> Most Popular Tags </h3>
+    </div>
+    <h3> Most Popular Tags </h3>
 <% Tag.most_popular.each do |tag| %>
   <%=link_to "#{tag.name}", tag_path(tag)%>
   <br>
@@ -61,5 +60,13 @@
 
 <h3> Trending Pictures </h3>
 <% Picture.trending.each do |picture| %>
-<%= link_to image_tag("#{picture.image_url}", :height => '250px'), picture_path(picture)  %>
+<div class="col-md-3" style="padding-left: 5px; padding-right: 5px;"><%= link_to image_tag("#{picture.image_url}", :size => '250x250'), picture_path(picture)  %></div>
 <% end %>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+

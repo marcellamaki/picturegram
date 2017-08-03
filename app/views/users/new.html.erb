@@ -1,10 +1,16 @@
+<div class="page-header">
+  <h1>Sign Up Here!</h1>
+</div>
+<br>
 <%= form_for(@user) do |f| %>
 <%= f.label :email, "Email:" %>
-<%= f.text_field :email %>
+<%= f.text_field :email %><br><br>
 <%= f.label :username, "Username:" %>
-<%= f.text_field :username %>
+<%= f.text_field :username %><br><br>
 <%= f.label :password, "Password:" %>
-<%= f.password_field :password %>
+<%= f.password_field :password %><br><br>
 
-<%= f.submit "Create User", :class => "button" %>
+<%= f.submit "Create User", class: 'btn btn-default' %>
 <% end %>
+
+<br>

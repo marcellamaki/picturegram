@@ -1,10 +1,31 @@
 body {
-    background-color: lightblue;
-	font-family: verdana;
+  background-color: #d7eaf2;
+	font-family: courier;
 	width: 100%;
 	padding: 10px;
 
 }
+
+* {
+  background-color: #d7eaf2;
+  font-family: courier;
+}
+
+hr {
+  border: 1px solid #000000;
+}
+
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+ }
+
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
+
 
 /*#comment {
 	border-style: solid;
@@ -16,19 +37,3 @@ body {
     border: 1px solid blue;
 }
 */
-.button {
-	background-color: gray;
-	color: white;
-  	width: 90px;
-  	height: 20px;
-}
-
-
-/*.thumbnail img {
-    height:50px;
-    width:100%;
-}*/
-
-/*.container {
-	max-width: 100%;
-}
