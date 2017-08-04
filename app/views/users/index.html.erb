@@ -17,10 +17,11 @@
 
 <h3>See What Others Have Been Saying About Your Pictures!</h3>
 <% this_user.received_comments.each do |comment| %>
-<%= link_to "#{comment.user.username}", user_path(comment.user) %>: <%= comment.content %><br>
+<%= link_to "#{comment.user.username}" %>: <%= comment.content %><br>
+<br>
+
 <% end %>
 <br>
 <br>
 <br>
 <br>
-

@@ -23,9 +23,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    byebug
-    this_user.destroy
-    @session.clear
+   this_user.destroy
+   @session.clear
 
     redirect_to signup_path
   end

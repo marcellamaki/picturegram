@@ -3,12 +3,10 @@ body {
 	font-family: courier;
 	width: 100%;
 	padding: 10px;
-
 }
 
-* {
+.container {
   background-color: #d7eaf2;
-  font-family: courier;
 }
 
 hr {
